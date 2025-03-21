@@ -555,7 +555,8 @@ function editTaskSetUp(when, which) {
         hours += 12;
     }
 
-    time = hours;
+    time = "";
+    time += (hours < 10) ? "0" + hours : hours;
     time += (minutes < 10) ? ":0" + minutes : ":" + minutes;
 
 
