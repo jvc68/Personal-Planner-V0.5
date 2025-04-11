@@ -303,11 +303,12 @@ function updateCalories(day, change) {
  * Parameter: {string} oldDate - The previous date if editing.
  */
 function addTask(taskNumb, oldDate) {
+
   const date = document.getElementById("date").value;
+  const title = document.getElementById("title").value;
   const time = fixTime(document.getElementById("time").value);
   const address = document.getElementById("location").value;
   const desc = document.getElementById("desc").value;
-  const title = document.getElementById("title").value;
   const givenDate = oldDate || "";
 
   if (title && date && time !== ":NaN am") {
@@ -333,6 +334,9 @@ function addTask(taskNumb, oldDate) {
     if (givenDate !== date && taskNumb) {
       removeTask(givenDate, taskNumb);
     }
+    location.reload();
+  } else {
+    showToast("Title, Date, and Time need to be Set!");
   }
 }
 
@@ -399,7 +403,6 @@ function addTaskPopup(title, desc, date, time, addy, task) {
       <hr>
       <br>
       <button id="popup-close-btn" class="close-btn">Close</button>
-      <form target="_self">
         <h3>What:</h3>
         <label for="title">Title:</label>
         <br>
@@ -423,16 +426,20 @@ function addTaskPopup(title, desc, date, time, addy, task) {
         <input type="text" id="location" name="location" value="${givenAddy}" class="inputArea">
         <br>
         <br>
-        <input type="submit" value="Submit" id="pushTask" class="submenuBtn">
-      </form>
+        <button id="pushTask" class="submenuBtn">Submit</button>
     </div>
   `;
+
+  setTheme();
 
   document.getElementById("popup-close-btn").addEventListener("click", closePopup);
   document.getElementById("popup").style.display = "block";
   document.getElementById("overlay-bg").style.display = "block";
   document.getElementById("pushTask").addEventListener("click", () => addTask(givenTask, date));
+
+
 }
+
 
 
 /**
