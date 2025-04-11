@@ -289,7 +289,7 @@ function updateCalories(day, change) {
   if (dateElement) {
     dateElement.textContent = `${day} (${currentCalories} cal)`;
   }
-  
+
   // Update sidebar if it's today's date
   const today = new Date();
   if (dateString === generateDateString(today.getDate(), true)) {
@@ -399,7 +399,7 @@ function addTaskPopup(title, desc, date, time, addy, task) {
       <hr>
       <br>
       <button id="popup-close-btn" class="close-btn">Close</button>
-      <form>
+      <form target="_self">
         <h3>What:</h3>
         <label for="title">Title:</label>
         <br>
@@ -653,10 +653,10 @@ function openSetCalorieGoalPopup() {
  */
 function handleCalorieGoalSubmit(event) {
   event.preventDefault();
-  
+
   const calorieGoal = document.getElementById("calorie-goal").value;
   localStorage.setItem("dailyCalorieGoal", calorieGoal);
-  
+
   closePopup();
   updateCalorieDisplay(); // Update the sidebar display
   showToast(`Daily Calorie Goal set to ${calorieGoal} calories`);
@@ -670,7 +670,7 @@ function updateCalorieDisplay() {
   const dateString = generateDateString(today.getDate(), true);
   const currentCalories = localStorage.getItem(`calories-${dateString}`) || "0";
   const dailyGoal = localStorage.getItem("dailyCalorieGoal") || "0";
-  
+
   const calorieSection = document.querySelector(".calorie-section"); // Third streak-section is for calories
   calorieSection.innerHTML = `
     <h2><u>Calories</u></h2>
@@ -678,12 +678,12 @@ function updateCalorieDisplay() {
     <p>Daily Calorie Goal: <span id="daily-goal">${dailyGoal}</span></p>
     <button class="sidebarBtn" id="set-calorie-goal">Set Daily Calorie Goal</button>
   `;
-  
+
   // Reattach event listener
   document
     .getElementById("set-calorie-goal")
     .addEventListener("click", openSetCalorieGoalPopup);
-  
+
   // Reapply theme to ensure button matches current theme
   setTheme();
 }
