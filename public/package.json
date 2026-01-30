@@ -1,29 +1,21 @@
 {
-  "name": "personal-planner",
+  "name": "personal-planner-v0.5",
   "version": "1.0.0",
-  "description": "This is a group project for CS-386 (Software Engineering)",
-  "main": "script.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "jest": {
-    "testEnvironment": "jsdom"
-  },
-  "author": "",
-  "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Oracle451/Personal-Planner.git"
+    "url": "git+https://github.com/jvc68/Personal-Planner-V0.5.git"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/Oracle451/Personal-Planner/issues"
+    "url": "https://github.com/jvc68/Personal-Planner-V0.5/issues"
   },
-  "homepage": "https://github.com/Oracle451/Personal-Planner#readme",
-  "devDependencies": {
-    "cypress": "^14.3.0",
-    "jest": "^29.7.0",
-    "jest-environment-jsdom": "^29.7.0",
-    "serve": "^14.2.4"
-  }
+  "homepage": "https://github.com/jvc68/Personal-Planner-V0.5#readme"
 }
